@@ -1,0 +1,1459 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    margin: 0;
+}
+
+#root {
+    width: 100vw;
+    height: 100vh;
+    background-image: var(--bgImage);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    display: grid;
+    grid-template-rows: 6vh 1fr 12vh;
+    justify-content: center;
+}
+
+.homeBg {
+    --bgImage: url('./Images/desktopShroomiesHomeWallpaper.png')
+}
+
+
+:root {
+    color-scheme: light dark;
+    --bgImage: url('./Images/newShroomiesWallpaperAllPages.png')
+}
+
+.reduceContainer {
+    margin-left: 240px;
+}
+
+/* ! Text and Fonts  */
+
+@font-face {
+    font-family: 'vaganza';
+    src: url(../public\See De Mayo.otf) format("opentype");
+}
+
+@font-face {
+    font-family: 'Caang';
+    src: url(../public/Caang\ Typeface\ regular.otf);
+}
+
+@font-face {
+    font-family: 'Love';
+    src: url(../public/Pineapplez\ Font\ LoveSVG.ttf);
+}
+
+@font-face {
+    font-family: 'Valery';
+    src: url(../public/Valery.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'Brodetto';
+    src: url(../public\Yoseline.otf) format('opentype');
+}
+
+hr {
+    box-shadow: .5px 1px 5px rgb(17, 9, 9);
+}
+
+#incorrectLogin {
+    color: rgb(248, 16, 16);
+    text-shadow: 1px 1px 1px black;
+    font-family: Love;
+    letter-spacing: 2px;
+    display: none;
+}
+
+
+#root h1 {
+    color: #00ffd5;
+    font-family: Brodetto;
+    font-size: 2.2vw;
+}
+
+#root h2 {
+    font-family: love;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #cd3f8d;
+    transition: .3s;
+}
+
+#root h2:hover {
+    color: rgb(247, 6, 167);
+    scale: 1.1;
+}
+
+#root h3 {
+    color: #1cbaa0;
+    font-family: Brodetto;
+    letter-spacing: 2px;
+    font-size: 1.3vw;
+}
+
+#root a,
+#root h4, span {
+    font-family: Brodetto;
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: #87c5c6;
+    transition: .5s;
+}
+
+#root p {
+    font-family: 'valery';
+    font-size: 24px;
+    letter-spacing: 2px;
+    color: gainsboro;
+}
+
+#root a:hover, #newsDescripList h4:hover {
+    color: #00ffd5;
+    cursor: pointer;
+}
+#recommendBtn:hover {
+    color: #00ffd5;
+    cursor: pointer;
+    scale: 1.1;
+}
+
+#root a.active {
+    color: #0793f8;
+    transform: scale(1.1);
+}
+
+#articleMain p::first-letter,
+#psychedelicMain p::first-letter, #singleItemContainer p::first-letter {
+    font-size: 56px;
+    color: #e02c8f;
+}
+
+#root input::placeholder,
+#root textarea::placeholder,
+#root select {
+    color: black;
+    font-family: Love;
+}
+
+.allBtns {
+    width: fit-content;
+    color: rgb(223, 32, 175);
+    box-shadow: inset 1px 1px 1px gray, 1px 1px 1px white;
+    font-family: Love;
+    font-size: 18px;
+    letter-spacing: 3px;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 3px;
+    transition: .4s;
+}
+
+.allBtns:hover {
+    transform: translateY(-3px);
+    background-color: #8181815d;
+    cursor: pointer;
+}
+
+#deleteBlogBtn {
+    box-shadow: inset 1px 1px 1px black, 1px 1px 1px white;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-family: love;
+    color: gainsboro;
+    transition: .5s;
+}
+
+#deleteBlogBtn:hover {
+    transform: translateY(-2px);
+    background-color: rgba(255, 0, 0, 0.574);
+}
+
+
+/* ! Nav Layout */
+.closebtn {
+    color: #00ffd5;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(60deg, black, slategray, black);
+    overflow-x: hidden;
+    transition: .6s;
+    padding-top: 30px;
+}
+
+.sidenav::-webkit-scrollbar {
+    background-color: transparent;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    display: block;
+    transition: 0.5s;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 0%;
+    margin-left: 50px;
+}
+
+#opennav {
+    color: white;
+}
+
+#main {
+    position: absolute;
+    z-index: 2;
+    padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+
+#socialLinks {
+    display: flex;
+    justify-content: center;
+    gap: 10%;
+    
+}
+svg {
+    color: rgb(189, 25, 148);
+    transition: .3s;
+    width: 20px;
+    height: 20px;
+}
+
+svg:hover {
+    color: rgb(251, 5, 165);
+    transform: translateY(-3px);
+    cursor: pointer;
+}
+
+/* ! Login Section On Nav Bar */
+#loginContainer {
+    padding: 20px 5px;
+}
+
+#loginContainer input {
+    font-size: 22px;
+    height: 30px;
+    width: 220px;
+}
+
+#loginOptions {
+    display: flex;
+    cursor: pointer;
+}
+
+#loginOptions a {
+    padding: 0;
+}
+
+.loginPasswrd {
+    border-radius: 3px;
+    width: 60%;
+    border: 1px solid white;
+    margin-left: 5px;
+}
+
+#updatePassword {
+    display: none;
+    margin-top: 10px;
+}
+
+#tryAgain {
+    color: red;
+    display: none;
+}
+
+/* ! Register Form */
+
+form {
+    width: 60%;
+}
+
+#registerFormHeader {
+    text-align: center;
+}
+
+#formContainer {
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-y: scroll;
+}
+
+#formContainer::-webkit-scrollbar {
+    width: 3px;
+    height: 8px;
+    background-color: rgba(82, 71, 71, 0.536);
+    border-radius: 30px;
+}
+
+#regpaswrd {
+    height: 40px;
+    width: 100%;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+#requiredSignIn {
+    text-align: center;
+    font-weight: bold;
+}
+
+/* ! End Nav Layout */
+
+/* ! Admin Page */
+
+
+#admingrid {
+    display: grid;
+    justify-content: center;
+}
+
+#adminLayout {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-rows: 9vh 60vh;
+}
+
+#adminForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-width: 80%;
+    height: 60vh;
+}
+
+#adminForm::-webkit-scrollbar {
+background-color: transparent;
+}
+
+#formImageContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 10px 0px;
+}
+
+#imageforForm {
+    height: 100px;
+    width: 100px;
+}
+
+#searchUsers {
+    height: fit-content;
+    max-width: 300px;
+    margin: 0px 10px;
+}
+
+.userLayout {
+    max-width: 950px;
+    max-height: 56vh;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 10px;
+    overflow-y: scroll;
+}
+
+.userLayout::-webkit-scrollbar {
+    width: 3px;
+    height: 8px;
+    background-color: rgba(82, 71, 71, 0.491);
+    border-radius: 30px;
+}
+
+#petitionReqContainer {
+    margin-top: 40px;
+}
+
+#registeredUsersLayout {
+    margin-top: 30px;
+}
+
+#userContainer {
+    width: fit-content;
+    height: fit-content;
+    border: 1px solid gray;
+    background-color: #6b696ab3;
+    box-shadow: 2px 2px 2px black;
+    padding: 10px 20px;
+    margin: 5px 0px;
+}
+
+/*? Blog Review */
+
+#blogReviewLayout {
+    margin-top: 40px;
+    height: 60vh;
+    overflow-y: scroll;
+}
+
+#blogReviewLayout::-webkit-scrollbar {
+    background-color: transparent;
+}
+
+#adminBlogReview {
+    height: 40vh;
+    width: 50vw;
+    margin: 10px;
+    padding: 5px 10px;
+    background-color: slategray;
+    box-shadow: 5px 5px 10px rgba(11, 10, 10, 0.557);
+    transition: .5s;
+    overflow-y: scroll;
+    text-align: center;
+}
+
+#adminBlogReview::-webkit-scrollbar {
+    background-color: transparent;
+}
+
+#blogSearchContainer {
+    max-width: 300px;
+}
+
+#commentsContainer {
+    margin: 10px;
+    padding: 5px 10px;
+    border: 1px solid gray;
+    background-color: #0794f8dc;
+    box-shadow: 2px 2px 2px black;
+    overflow-y: scroll;
+}
+
+#commentsContainer::-webkit-scrollbar {
+    background-color: transparent;
+}
+
+/* ! Home Page */
+
+#homeEntro {
+    display: grid;
+    background-image: linear-gradient(45deg, black, slategray, black);
+    box-shadow: 5px 5px 10px rgba(11, 10, 10, 0.557);
+    border-radius: 60px 0px 0px 60px;
+    padding: 20px;
+    width: 60vw;
+    height: 50vh;
+    margin-top: 20%;
+}
+
+#homeEntro h1 {
+    font-family: 'Caang';
+    font-weight: bold;
+    font-size: 42px;
+    line-height: 45px;
+    letter-spacing: 2px;
+    color: gainsboro;
+}
+
+#homeQuote h1 {
+    color: rgb(250, 7, 230);
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* ! Footer */
+footer {
+    display: grid;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+
+/* ! Blog Page */
+#blogLayout {
+    overflow: hidden;
+    transition: all .5s;
+}
+
+/* ! Posted Blogs Container */
+
+#blogSearch {
+    display: grid;
+    grid-template-columns: 30vw 30vw;
+    justify-content: space-between;
+    margin: 3%;
+    background-image: linear-gradient(45deg, black, slategray, black);
+    box-shadow: 5px 5px 10px rgba(11, 10, 10, 0.557);
+}
+
+#blogSearch h4 {
+    cursor: pointer;
+}
+
+#blogSearchBar {
+    height: 30px;
+    max-width: 200px;
+    background-color: #818181;
+    border-color: darkgrey;
+}
+
+#blogItems {
+    height: fit-content;
+    width: 90vw;
+    height: 70vh;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 40%));
+    gap: 2rem;
+    overflow-y: scroll;
+}
+
+#blogItems::-webkit-scrollbar {
+    width: 3px;
+    height: 8px;
+    background-color: transparent;
+    border-radius: 30px;
+}
+
+#singleBlog {
+    height: 40vh;
+    padding: 5px 10px;
+    background-color: #6f716f;
+    box-shadow: 5px 5px 15px black;
+    transition: .5s;
+    overflow-y: hidden;
+    text-align: center;
+}
+
+#singleBlog:hover {
+    background-color: rgb(143, 141, 141);
+}
+
+#singleBlogHeaderDate {
+    display: flex;
+   justify-content: space-between;
+   gap: 3%;
+}
+#singleBlogHeaderDate h3 {
+    font-size: 1vw;
+}
+#left {
+    flex: 1.2;
+    border-right: 1px solid black;
+    padding: 1%;
+    margin: 1% 0%;
+    text-align: left;
+}
+#mid{
+    flex: 1.6;
+    border-right: 1px solid black;
+    padding-right: 5%;
+    padding: 1%;
+    margin: 1% 0%;
+}
+#right{
+    flex: 1.2;
+    text-align: right;
+    padding: 1%;
+    margin: 1% 0%;
+}
+
+#singleImgContainer {
+    display: grid;
+    justify-content: center;
+}
+
+#singleBlogImg {
+    width: 200px;
+    height: 200px;
+}
+
+
+/* ! Buttons On Blog Page */
+
+.hideBtn {
+    display: none;
+}
+
+/* ! End Posted Blogs Container */
+
+/* ! Blog Details  */
+
+#blogStoryLayout {
+    display: grid;
+    grid-template-columns: 75% 20%;
+    gap: 2%;
+}
+
+#blogStorySideTabs {
+    display: flex;
+    flex-direction: column;
+    max-width: 350px;
+    gap: 1%;
+    padding-top: 10%;
+}
+
+
+#blogStorySideTabs h4 {
+    color: rgb(223, 32, 175);
+    font-family: Love;
+    font-size: 16px;
+    transition: .5s;
+}
+
+/* #headerRefTabs:hover {
+    cursor: pointer;
+    scale: 1.1;
+} */
+
+#adminLayout {
+    display: grid;
+    align-items: center;
+    margin-top: 30px;
+    height: 78vh;
+    padding: 30px;
+    overflow-y: scroll;
+    background-image: linear-gradient(45deg, black, slategray, black);
+    box-shadow: 5px 5px 10px rgba(11, 10, 10, 0.557);
+}
+
+#singleItemContainer {
+    margin-top: 30px;
+    max-width: 1700px;
+    height: 78vh;
+    padding: 30px;
+    background-image: linear-gradient(45deg, black, slategray, black);
+    box-shadow: 5px 5px 10px rgba(11, 10, 10, 0.557);
+    transition: .5s;
+}
+
+#adminLayout::-webkit-scrollbar,
+#registerLayout::-webkit-scrollbar {
+    width: 3px;
+    height: 8px;
+    background-color: rgba(82, 71, 71, 0.478);
+    border-radius: 30px;
+}
+
+#blogHeaderContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#blogHeader {
+    font-family: 'Brodetto';
+    color: #87c5c6;
+    display: flex;
+    gap: 20%;
+    align-items: center;
+    justify-content: space-between;
+    width: 50vw;
+}
+
+#closeBlogContainer {
+    text-align: center;
+}
+
+#recommendedNumber {
+    color: #87c5c6;
+    font-size: 24px;
+}
+
+#blogStoryContainer {
+    max-width: 1300px;
+    font-family: Valery;
+    color: gainsboro;
+    font-size: 24px;
+    letter-spacing: 3px;
+    word-spacing: 4px;
+    height: 50vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+#blogStoryContainer::-webkit-scrollbar {
+    width: 3px;
+    height: 8px;
+    background-color: rgba(82, 71, 71, 0.451);
+    border-radius: 30px;
+}
+
+#blogStory {
+    margin-bottom: 2%;
+}
+
+#blogStory::first-letter {
+    font-size: 48px;
+}
+
+#imgBlogContainer {
+    display: grid;
+    justify-content: center;
+    margin-top: 1%;
+}
+
+#blogStoryImg {
+    width: 300px;
+}
+
+.additionalBlogHeaderTitle,
+#blogHeaderTitle {
+    text-align: center;
+}
+
+/* ! Blog Comments */
+#newCommentContainer {
+    width: fit-content;
+    background-image: linear-gradient(45deg, black, slategray, black);
+    box-shadow: inset 3px 3px 3px black, 1px 1px 1px white;
+    border-radius: 1.5px;
+    margin-top: 20px;
+    padding: 0px 10px;
+}
+
+#blogCommentForm,
+#commentSubmitHeader {
+    margin-top: 20px;
+}
+
+#loginToComment {
+    cursor: pointer;
+}
+
+/* ! Post A Blog */
+#mobileBlogHeader {
+    display: none;
+}
+
+#blogGeneratorContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 40%));
+    gap: 10px;
+    justify-content: center;
+    margin-top: 30px;
+    height: 78vh;
+    width: 70vw;
+    padding: 30px;
+    background-image: linear-gradient(45deg, black, slategray, black);
+    box-shadow: 5px 5px 10px rgba(11, 10, 10, 0.557);
+    transition: all .5s;
+}
+
+#generateBlogForm {
+    width: 100%;
+    margin-left: auto;
+    transition: all .5s;
+}
+
+/* Blog Preview */
+#preview {
+    border: 1px solid slategray;
+    padding: 5px;
+    overflow-y: scroll;
+}
+
+#preview::-webkit-scrollbar {
+    width: 3px;
+    height: 8px;
+    background-color: rgba(82, 71, 71, 0.474);
+    border-radius: 30px;
+}
+
+#previewHeaderContainer {
+    display: grid;
+    align-items: center;
+}
+
+#previewImgContainer {
+    display: flex;
+    justify-content: center;
+}
+
+#previewImgBlog {
+    max-width: 250px;
+}
+
+#previewBody {
+    color: gainsboro;
+    font-family: Valery;
+    font-size: 20px;
+    letter-spacing: 3px;
+}
+
+/* ! News And Medical Articles */
+
+/* ! Articles Titles Ad*/
+#shroomiesAd {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: linear-gradient(rgb(151, 27, 108), rgba(246, 6, 134, 0.721));
+    width: fit-content;
+    border-radius: 3px;
+    margin: 0px 10px;
+    text-align: center;
+}
+
+#shroomiesAd a {
+    padding: 0;
+}
+
+#shroomiesAd a:hover {
+    cursor: grab;
+}
+
+#adImg {
+    width: 150px;
+}
+
+/* !  Search & Pick  */
+#searchContainer input::placeholder {
+    color: black;
+
+}
+
+#searchContainer input {
+    border: none;
+    max-width: 200px;
+    background-color: transparent;
+    background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.754), rgba(111, 110, 110, 0));
+
+}
+
+/* ! End */
+
+/* ! Article Title Sidebar */
+.dropbtn {
+    display: none;
+}
+
+#titlesContainer::-webkit-scrollbar {
+    background-color: transparent;
+}
+
+/* ! End */
+
+#hiddenContainer {
+    display: none;
+}
+
+#newsGrid {
+    display: grid;
+    gap: 3%;
+    grid-template-columns: 70vw 15vw;
+    margin-top: 5%;
+}
+
+#newsDescrip,
+#newsDescripList {
+    background-image: linear-gradient(45deg, black, slategray, black);
+    box-shadow: 5px 5px 10px rgba(11, 10, 10, 0.557);
+    padding: 15px;
+    height: 73vh;
+    overflow-y: scroll;
+    transition: all .5s;
+}
+
+#newsDescripList {
+    width: 15vw;
+}
+
+#newsDescrip::-webkit-scrollbar,
+#newsDescripList::-webkit-scrollbar {
+    width: 3px;
+    height: 8px;
+    background-color: rgba(82, 71, 71, 0.495);
+    border-radius: 30px;
+}
+
+#newsDescripList h4 {
+    margin: 5px;
+}
+
+.articleHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 10px;
+}
+
+#articleMain {
+    float: left;
+    box-sizing: border-box;
+    margin-top: 10px;
+    padding: 0px 10px;
+    overflow-y: scroll;
+    height: 64vh;
+}
+
+#articleMain::-webkit-scrollbar {
+    width: 3px;
+    height: 8px;
+    background-color: transparent;
+    border-radius: 30px;
+}
+
+#articleImage {
+    height: 400px;
+    width: 350px;
+    float: inherit;
+    margin: 0 1rem;
+    box-shadow: 1px 5px 5px hsl(0, 2%, 9%);
+    border-radius: 10px;
+}
+
+/* ! MDMA & PSILOCYBIN */
+
+#psychedelicHeader {
+    display: grid;
+    justify-content: center;
+    text-align: center;
+}
+
+#psychedelicMain {
+    display: grid;
+    max-width: 1500px;
+    text-align: center;
+    overflow-y: scroll;
+    margin: 25px;
+    padding: 20px;
+}
+
+#psychedelicMain h1 {
+    background-image: linear-gradient(45deg, black, slategray, black);
+    box-shadow: 5px 5px 10px rgba(11, 10, 10, 0.557);
+}
+
+#psychedelicGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 30%));
+    gap: 10%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    transition: all .5s;
+}
+
+#psychedelicMain form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(45deg, black, slategray, black);
+    box-shadow: 5px 5px 10px rgba(11, 10, 10, 0.557);
+    height: fit-content;
+}
+
+#psychedelicMain::-webkit-scrollbar {
+    width: 3px;
+    height: 8px;
+    background-color: transparent;
+    border-radius: 30px;
+}
+
+#decrimDescrip {
+    background-image: linear-gradient(45deg, black, slategray, black);
+    box-shadow: 5px 5px 10px rgba(11, 10, 10, 0.557);
+    padding: 15px;
+    transition: all .5s;
+    margin-left: auto;
+    height: 60vh;
+    overflow-y: scroll;
+}
+
+#decrimDescrip::-webkit-scrollbar {
+    width: 3px;
+    height: 8px;
+    background-color: rgba(82, 71, 71, 0.477);
+    border-radius: 30px;
+}
+
+/* ! End */
+
+/* ! Decriminalization Form */
+
+#Form {
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+}
+
+input[type=text],
+select,
+textarea {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin: 5px;
+    resize: vertical;
+    color: black;
+}
+
+/* ! End */
+
+@media (prefers-color-scheme: dark) {
+
+    :root {
+        --bgImage: url('./Images/newShroomiesDarkAllPages.png')
+    }
+
+    #root {
+        background-image: var(--bgImage);
+    }
+
+    .homeBg {
+        --bgImage: url('src/Images/newShroomiesDarkHomeSrceen.png')
+    }
+
+    
+#root h1 {
+    color: #f90505;
+    font-family: Brodetto;
+    font-size: 44px;
+}
+
+#root h2 {
+    font-family: love;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #d00707;
+}
+
+#root h2:hover {
+    color: rgb(248, 23, 23);
+}
+
+#root h3 {
+    color: #e60a0a;
+    font-family: Brodetto;
+    font-size: 24px;
+}
+
+#root a,
+#root h4 {
+    font-family: Brodetto;
+    font-size: 24px;
+    letter-spacing: 2px;
+    color: #d00707;
+    transition: .5s;
+}
+
+#root p {
+    font-family: Valery;
+    font-size: 24px;
+    letter-spacing: 2px;
+    color: rgb(231, 13, 13);
+}
+
+#root a:hover,
+#root h4:hover {
+    color: #e41818;
+    cursor: pointer;
+    font-size: 26px;
+}
+
+#root a.active {
+    color: #f80707;
+}
+
+.allBtns {
+    color: rgb(231, 13, 13);
+}
+
+.allBtns:hover {
+    color: #f80707;
+}
+
+#homeEntro h1 {
+    font-family: 'Caang';
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 45px;
+    letter-spacing: 2px;
+    color: rgb(205, 22, 22);
+    text-shadow: 1px 1px 1px white;
+}
+
+
+
+
+}
+
+@media (max-width: 950px) {
+
+    :root {
+        --bgImage: url(./Images/newShroomiesTabletAllPagesWallpaper.png);
+    }
+
+    #root {
+        background-image: var(--bgImage);
+        grid-template-rows: 6vh 82vh 1vh;
+    }
+
+    .tabletHomeWallpaper {
+        --bgImage: url('./Images/newShroomiesTabletWallpaper.png')
+    }
+
+
+    #root h1 {
+        color: #00ffd5;
+        font-family: Brodetto;
+        font-size: 30px;
+    }
+
+    #root h2 {
+        font-family: love;
+        font-size: 14px;
+        letter-spacing: 1px;
+        color: #e02c8f;
+    }
+
+    #root h3 {
+        color: #87c5c6;
+        font-family: Brodetto;
+        font-size: 16px;
+    }
+
+    #root a,
+    #root h4 {
+        font-family: Brodetto;
+        font-size: 16px;
+        letter-spacing: 2px;
+        color: #87c5c6;
+        transition: .5s;
+    }
+
+    #root a:hover {
+        color: #00ffd5;
+        cursor: pointer;
+        font-size: 20px;
+    }
+
+
+    #root p, span {
+        font-family: Valery;
+        font-size: 20px;
+        letter-spacing: 2px;
+        color: gainsboro;
+    }
+
+    #opennav {
+        position: relative;
+        bottom: 5px;
+    }
+
+    .userLayout {
+        height: 46vh;
+    }
+
+    #homeEntro h1 {
+        font-family: 'Caang';
+        font-weight: bold;
+        font-size: 32px;
+        line-height: 45px;
+        letter-spacing: 2px;
+        color: gainsboro;
+    }
+
+    #homeEntro {
+        width: 100vw;
+    }
+
+    
+    #blogHeaderContainer {
+        display: none;
+    } 
+    
+    #mobileBlogHeader {
+        display: block;
+    }
+
+    #mBlogDate-Close {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    #blogStorySideTabs {
+        display: none;
+    }
+    #blogStoryLayout {
+        display: block;
+    }
+
+    #blogStoryImg {
+        height: 300px;
+    }
+
+    #estReadTime {
+        text-align: center;
+    }
+
+
+    /* ! Articles */
+    .dropbtn {
+        display: block;
+    }
+
+    #articleImage {
+        width: 200px;
+        height: 225px;
+    }
+
+    #newsGrid {
+        display: block;
+    }
+
+    #newsDescripList {
+        display: none;
+        position: absolute;
+    }
+    form {
+        width: 100%;
+    }
+
+    @media (prefers-color-scheme: dark) {
+
+        :root {
+            --bgImage: url('./Images/newShroomiesDarkTabletAllPages.png')
+        }
+
+        #root {
+            background-image: var(--bgImage);
+        }
+
+        .homeBg {
+            --bgImage: url('src/Images/newShroomiesDarkTabletHomeScreen.png')
+        }
+
+    }
+}
+
+@media (max-width: 565px) {
+
+    #root {
+        grid-template-rows: 13vh 73vh 10vh;
+        background-image: var(--bgImage);
+    }
+
+    .mobileHomeWallpaper {
+        --bgImage: url(./Images/newMobileAllPagesWallpaper.png)
+    }
+
+    #opennav {
+        right: 12px;
+        bottom: 10px;
+    }
+
+    #homeEntro {
+        display: block;
+        height: fit-content;
+        width: 100vw;
+    }
+
+   
+
+    /* ! Admin  */
+    #adminLayout {
+        margin: 0;
+        width: 100%;
+        grid-template-rows: 10vh 60vh;
+        gap: 10%;
+        overflow: hidden;
+    }
+
+    form {
+        width: 80%;
+    }
+
+    #adminForm {
+        width: 90vw;
+    }
+
+    #adminBlogReview {
+        width: fit-content;
+    }
+
+    footer {
+        margin-top: 15%;
+    }
+
+    /* ! Blog Page */
+
+    #blogLayout
+
+    #blogStoryContainer {
+        height: 50vh;
+    }
+
+    #blogHeaderContainer {
+        display: none;
+    } 
+    
+    #mobileBlogHeader {
+        display: block;
+    }
+
+    #blogSearch {
+        justify-content: start;
+    }
+
+    #mBlogDate-Close {
+        display: flex;
+        gap: 5%;
+        align-items: center;
+    }
+
+    #estReadTime {
+        text-align: center;
+    }
+
+    #blogStoryLayout {
+        display: block;
+    }
+
+    #newCommentContainer {
+        width: 95%;
+    }
+
+    #blogGeneratorContainer {
+        width: 100%;
+    }
+
+    #previewImgContainer {
+        display: flex;
+        justify-content: center;
+    }
+
+    #blogStoryImg {
+        margin-top: 10px;
+        max-width: 100px;
+        max-height: 100px;
+    }
+
+    #previewImgBlog {
+        max-width: 150px;
+        max-height: 100px;
+    }
+
+    #previewHeaderContainer {
+        display: block;
+    }
+
+    #blogCommentForm {
+        width: 95%;
+    }
+
+    /* ! Articles */
+
+    #articleImage {
+        width: 200px;
+        height: 250px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --bgImage: url('./Images/newShroomiesDarkMobileAllPages.png')
+        }
+
+        #root {
+            background-image: var(--bgImage);
+        }
+
+        .homeBg {
+            --bgImage: url('src/Images/newShroomiesDarkMobileHomePage.png')
+        }
+    }
+}
+
+/* ! Dropdown */
+.dropbtn {
+    background-color: rgb(247, 6, 167);
+    color: white;
+    font-family: 'Love';
+    padding: 2px 4px;
+    letter-spacing: 3px;
+    font-size: 16px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: absolute;
+    top: 6%;
+    left: 1%;
+    display: inline-block;
+    width: fit-content;
+    height: 30vw;
+    overflow-y: scroll;
+}
+
+.dropdown::-webkit-scrollbar {
+    background-color: transparent;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: fit-content;
+    padding: 0px 5px;
+    box-shadow: 3px 3px 3px black;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #0B4AF6;
+    font-family: Valery;
+    font-size: 20px;
+    padding: 5px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    border-radius: 0px;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #D9E1F7;
+    border-radius: 0px;
+}
+
+#searchContainer {
+    padding: 5px;
+}
+
+#searchContainer input {
+    background-color: gray;
+}
